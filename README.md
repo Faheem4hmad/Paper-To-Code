@@ -46,20 +46,37 @@ All scans, generated code, dry-run notes, and complexity metrics are stored loca
 ## 🧠 Architecture Overview
 
 ```
-┌─────────────────────┐
-│   Presentation      │  Jetpack Compose UI + ViewModels
-│   (MVVM)            │
-└─────────┬───────────┘
-          │
-┌─────────▼───────────┐
-│      Domain         │  Use Cases / Business Logic
-│                     │
-└─────────┬───────────┘
-          │
-┌─────────▼───────────┐
-│       Data          │  Room DB (local) + Gemini API (remote)
-│                     │
-└─────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│                 📱 PRESENTATION LAYER                   │
+├─────────────────────────────────────────────────────────┤
+│  ┌───────────────┐      ┌────────────────────────────┐  │
+│  │  Jetpack      │ ───► │       ViewModels           │  │
+│  │  Compose UI   │ ◄─── │ (StateFlow / Coroutines)   │  │
+│  └───────────────┘      └──────┬──────────────▲──────┘  │
+└────────────────────────────────│──────────────│─────────┘
+                                 │ Trigger      │ State
+┌────────────────────────────────▼──────────────│─────────┐
+│                   🧠 DOMAIN LAYER             │         │
+├───────────────────────────────────────────────│─────────┤
+│  ┌────────────────────────────────────────────┴──────┐  │
+│  │                   Use Cases                       │  │
+│  │ - ExtractCodeUseCase, CalculateComplexityUseCase  │  │
+│  └─────────────────────┬──────────────────────▲──────┘  │
+└────────────────────────│──────────────────────│─────────┘
+                         │ Request              │ Data Result
+┌────────────────────────▼──────────────────────│─────────┐
+│                     🏗️ DATA LAYER             │         │
+├───────────────────────────────────────────────│─────────┤
+│  ┌────────────────────────────────────────────┴──────┐  │
+│  │                  Repository                       │  │
+│  │ - CodeRepository (Single Source of Truth)         │  │
+│  └─────────┬───────────────────────────────┬─────────┘  │
+│            │ API Call                      │ Save/Load  │
+│  ┌─────────▼────────────┐        ┌─────────▼─────────┐  │
+│  │ Remote Data Source   │        │ Local Data Source │  │
+│  │ (Google Gemini API)  │        │ (Room Database)   │  │
+│  └──────────────────────┘        └───────────────────┘  │
+└─────────────────────────────────────────────────────────┘
 ```
 The app follows *Clean Architecture* principles with clear separation between UI, business logic, and data layers, using *Kotlin Flow* for reactive state updates across async operations (API calls, DB queries).
 
