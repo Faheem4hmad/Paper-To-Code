@@ -124,7 +124,7 @@ package com.example.papertocode.data.remote
    }
    ```
 3.  Sync Gradle and run the app on an emulator or physical device.
-
+---
 ## 🗺️ Roadmap
 [ ] Publish to Google Play Store
 
@@ -135,6 +135,8 @@ package com.example.papertocode.data.remote
 [ ] Export scanned solutions as shareable code snippets
 
 [ ] Add tags/categories for organizing saved solutions
+
+---
 
 ##📄 License
 This project is licensed under the MIT License — see the LICENSE file for details.
