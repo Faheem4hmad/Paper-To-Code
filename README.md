@@ -47,20 +47,19 @@ All scans, generated code, dry-run notes, and complexity metrics are stored loca
 
 ```
 ┌─────────────────────┐
-│   Presentation       │  Jetpack Compose UI + ViewModels
-│   (MVVM)              │
-└─────────┬────────────┘
+│   Presentation      │  Jetpack Compose UI + ViewModels
+│   (MVVM)            │
+└─────────┬───────────┘
           │
-┌─────────▼────────────┐
-│      Domain           │  Use Cases / Business Logic
-│                        │
-└─────────┬────────────┘
+┌─────────▼───────────┐
+│      Domain         │  Use Cases / Business Logic
+│                     │
+└─────────┬───────────┘
           │
-┌─────────▼────────────┐
-│       Data             │  Room DB (local) + Gemini API (remote)
-│                        │
-└────────────────────────┘
-
+┌─────────▼───────────┐
+│       Data          │  Room DB (local) + Gemini API (remote)
+│                     │
+└─────────────────────┘
 ```
 The app follows *Clean Architecture* principles with clear separation between UI, business logic, and data layers, using *Kotlin Flow* for reactive state updates across async operations (API calls, DB queries).
 
