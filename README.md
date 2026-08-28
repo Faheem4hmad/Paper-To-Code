@@ -116,11 +116,13 @@ The app follows *Clean Architecture* principles with clear separation between UI
    git clone [https://github.com/Faheem4hmad/Paper-To-Code.git](https://github.com/Faheem4hmad/Paper-To-Code.git)
 2. Configure API Key:
 Create ApiKeyProvider.kt inside app/src/main/java/com/example/papertocode/data/remote/:
-  package com.example.papertocode.data.remote
-
+ 
+  ```
+package com.example.papertocode.data.remote
  object ApiKeyProvider {
     const val API_KEY = "YOUR_GEMINI_API_KEY_HERE"
    }
+   ```
 3.  Sync Gradle and run the app on an emulator or physical device.
 
 ## 🗺️ Roadmap
