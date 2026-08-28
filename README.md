@@ -45,7 +45,7 @@ All scans, generated code, dry-run notes, and complexity metrics are stored loca
 
 ## 🧠 Architecture Overview
 
-
+```
 ┌─────────────────────┐
 │   Presentation       │  Jetpack Compose UI + ViewModels
 │   (MVVM)              │
@@ -61,7 +61,7 @@ All scans, generated code, dry-run notes, and complexity metrics are stored loca
 │                        │
 └────────────────────────┘
 
-
+```
 The app follows *Clean Architecture* principles with clear separation between UI, business logic, and data layers, using *Kotlin Flow* for reactive state updates across async operations (API calls, DB queries).
 
 ---
