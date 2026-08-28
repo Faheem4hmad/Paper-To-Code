@@ -89,7 +89,7 @@ The app follows *Clean Architecture* principles with clear separation between UI
     <td align="center"><b>Export Code</b><br/>Share extracted code directly to other apps</td>
   </tr>
   <tr>
-    <td><img src="screenshots/05_leetcode_practice.jpg" width="300"/></td>
+    <td><img src="screenshots/05_leetcode_practise.jpg" width="300"/></td>
     <td><img src="screenshots/06_export_code.jpg" width="300"/></td>
   </tr>
   <tr>
