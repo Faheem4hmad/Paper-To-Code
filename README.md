@@ -47,34 +47,32 @@ All scans, generated code, dry-run notes, and complexity metrics are stored loca
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                 📱 PRESENTATION LAYER                   │
+│                  PRESENTATION LAYER                     │
 ├─────────────────────────────────────────────────────────┤
 │  ┌───────────────┐      ┌────────────────────────────┐  │
-│  │  Jetpack      │ ───► │       ViewModels           │  │
-│  │  Compose UI   │ ◄─── │ (StateFlow / Coroutines)   │  │
+│  │ Jetpack       │ ───► │ ViewModels                 │  │
+│  │ Compose UI    │ ◄─── │ (StateFlow & Coroutines)   │  │
 │  └───────────────┘      └──────┬──────────────▲──────┘  │
 └────────────────────────────────│──────────────│─────────┘
                                  │ Trigger      │ State
 ┌────────────────────────────────▼──────────────│─────────┐
-│                   🧠 DOMAIN LAYER             │         │
+│                     DOMAIN LAYER              │         │
 ├───────────────────────────────────────────────│─────────┤
 │  ┌────────────────────────────────────────────┴──────┐  │
-│  │                   Use Cases                       │  │
-│  │ - ExtractCodeUseCase, CalculateComplexityUseCase  │  │
+│  │ Use Cases (ExtractCode, CalculateComplexity)      │  │
 │  └─────────────────────┬──────────────────────▲──────┘  │
 └────────────────────────│──────────────────────│─────────┘
-                         │ Request              │ Data Result
+                         │ Request              │ Data
 ┌────────────────────────▼──────────────────────│─────────┐
-│                     🏗️ DATA LAYER             │         │
+│                      DATA LAYER               │         │
 ├───────────────────────────────────────────────│─────────┤
 │  ┌────────────────────────────────────────────┴──────┐  │
-│  │                  Repository                       │  │
-│  │ - CodeRepository (Single Source of Truth)         │  │
+│  │ CodeRepository (Single Source of Truth)           │  │
 │  └─────────┬───────────────────────────────┬─────────┘  │
 │            │ API Call                      │ Save/Load  │
 │  ┌─────────▼────────────┐        ┌─────────▼─────────┐  │
 │  │ Remote Data Source   │        │ Local Data Source │  │
-│  │ (Google Gemini API)  │        │ (Room Database)   │  │
+│  │ (Gemini Vision API)  │        │ (Room Database)   │  │
 │  └──────────────────────┘        └───────────────────┘  │
 └─────────────────────────────────────────────────────────┘
 ```
